@@ -1,17 +1,7 @@
-# 培养测量审阅
+# 科研训练量表审阅
 
-培养问卷保留测量版本、答卷和经确认的题目对应关系。
+项目分析不同学期的训练问卷版本、学生答卷和阶段记录。问卷题目以 `item` 表示并带版本号；答卷按 `response` 记录，`withdrawn` 或无效答卷不参与均值。跨版本映射只有状态为 `confirmed` 时才会出现在确认映射列表中。
 
-## 数据约定
+每个版本的题目仍分别报告，不因文字相似就视为同一测量。阶段记录用于解释样本构成。当前报告按输入的题目、答卷和映射计算，尚未追踪量表负责人修订映射后哪些历史 cohort 需要重新评估，也未封存旧总结口径。
 
-应用使用本地合成记录，输入为 UTF-8 JSON。每条记录都应有稳定的业务标识；日期采用 ISO 8601 格式。缺失值表示未观察到，不解释为数值零。输入校验、领域整理和结果汇总彼此分离，调用方可通过 Python API 使用。
-
-## 运行与测试
-
-需要 Python 3.11 或更新版本，不依赖外部服务。执行 `python -m unittest discover -s tests -v` 运行测试。将 `src` 加入 `PYTHONPATH` 后可导入 `survey_review`；核心示例见 `examples/sample.json`。
-
-## 目录
-
-- `src/survey_review/`：记录读取、领域计算及结果汇总。
-- `examples/`：本地合成数据。
-- `tests/`：输入边界与当前业务口径测试。
+需要 Python 3.11 或更新版本，不依赖外部服务。运行 `PYTHONPATH=src python -m unittest discover -s tests -v` 执行测试。`survey_review.facts` 校验输入，`survey_review.comparability.confirmed_mappings` 只选取负责人确认的题目对应，`survey_review.analysis.summarize` 计算版本内覆盖与阶段样本，`survey_review.reports.build_report` 生成修订报告。样例见 `examples/sample.json`。

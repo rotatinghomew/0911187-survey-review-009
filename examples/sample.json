@@ -1,20 +1,8 @@
 [
-  {
-    "id": "sample-1",
-    "period": "2026-S1",
-    "group": "A",
-    "value": 2
-  },
-  {
-    "id": "sample-2",
-    "period": "2026-S1",
-    "group": "A",
-    "value": null
-  },
-  {
-    "id": "sample-3",
-    "period": "2026-S2",
-    "group": "B",
-    "value": 4
-  }
+  {"id":"q-old","kind":"item","version":"2025","construct":"问题自主性","text":"能否独立提出研究问题"},
+  {"id":"q-new","kind":"item","version":"2026","construct":"研究规划能力","text":"能否规划研究步骤"},
+  {"id":"r-old","kind":"response","version":"2025","item_id":"q-old","student_id":"s-01","value":4,"status":"valid"},
+  {"id":"r-new","kind":"response","version":"2026","item_id":"q-new","student_id":"s-01","value":5,"status":"valid"},
+  {"id":"stage-01","kind":"stage","student_id":"s-01","stage":"中期"},
+  {"id":"map-01","kind":"mapping","from_item":"q-old","to_item":"q-new","common_construct":"自主研究","status":"proposed"}
 ]
