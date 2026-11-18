@@ -1,0 +1,20 @@
+[
+  {
+    "id": "sample-1",
+    "period": "2026-S1",
+    "group": "A",
+    "value": 2
+  },
+  {
+    "id": "sample-2",
+    "period": "2026-S1",
+    "group": "A",
+    "value": null
+  },
+  {
+    "id": "sample-3",
+    "period": "2026-S2",
+    "group": "B",
+    "value": 4
+  }
+]
